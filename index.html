@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Github Repo Search</title>
+</head>
+<body>
+    <div class="container" id="app">
+        <div class="row box">
+            <div class="col s12">
+                <input type="text" name="nome" placeholder="Informe o nome do usuário"><br>
+                <a class="waves-effect waves-light btn" onclick="getRepo()">Buscar</a>
+            </div>
+        </div>
+        <div class="row lista">
+            <div class="col s12">
+                <ul></ul>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

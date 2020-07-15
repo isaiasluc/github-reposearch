@@ -1,0 +1,26 @@
+body {
+    background: whitesmoke;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    background-color: teal;
+    border: solid 1px blue;
+    border-radius: 6px;
+    margin-top: 200px;
+    width: 300px;
+}
+
+input {
+    text-align: center;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+}
+
+ul {
+    text-align: center;
+}
+
