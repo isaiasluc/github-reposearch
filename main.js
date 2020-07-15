@@ -29,12 +29,18 @@ function loading() {
 function renderItems(response) {
     listElement.innerHTML = "";
     for (let i=0; i<response.data.length; i++) {
-        let data = response.data[i].name;
-        
+
+        let repoName = response.data[i].name;
+        let htmlUrl = response.data[i].html_url;
+
+        let linkElement = document.createElement('a');
+        let textElement = document.createTextNode(repoName);
+        linkElement.appendChild(textElement);
+        linkElement.setAttribute('href', `${htmlUrl}`);
+
         let listItem = document.createElement('li');
-        let textElement = document.createTextNode(data);
-        
-        listItem.appendChild(textElement);
+
+        listItem.appendChild(linkElement);
         listElement.appendChild(listItem);                
     }
 }

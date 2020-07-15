@@ -1,25 +1,41 @@
 body {
-    background: whitesmoke;
+    background: url("./images/bg.jpg");
+    background-size: cover;
     font-family: 'Roboto', sans-serif;
+    color: white;
 }
 
 .container {
-    background-color: teal;
-    border: solid 1px blue;
+    background: transparent;
+    
+    border: solid 1px white;
     border-radius: 6px;
-    margin-top: 200px;
+    margin-top: 300px;
+    margin-bottom: 300px;
     width: 300px;
 }
 
+header {
+    text-align: center;
+    margin-top: 20px;
+}
+
+footer {
+    text-align: center;
+    font-size: 10px;
+}
 input {
     text-align: center;
 }
 
 .btn {
     display: flex;
-    justify-content: center;
+    justify-content: center;    
 }
 
+.icons {
+    font-size: 20px;
+}
 ul {
     text-align: center;
 }
