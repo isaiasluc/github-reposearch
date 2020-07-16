@@ -2,45 +2,56 @@ var buttonElement = document.querySelector('#app button');
 var inputElement = document.querySelector('#app input');
 var listElement = document.querySelector('#app ul');
 
-function getRepo() {
-    listElement.innerHTML = "";
-    var user = (`https://api.github.com/users/${inputElement.value}/repos`);
-    axios.get(user)
-    .then(loading()) 
+function searchRepos(event) {
+    if (event.key === 'Enter') {
+        getRepo();
+    }
 
-    .then(function(response) {
-        //Retorna a response e salvamos somente os dados em uma variável data;
-        renderItems(response);                    
-    })
-    
-    .catch(function(error) {
-        alert(error);
-        console.log(error);
-    })
+    return;
+}
+
+function getRepo() {
+    console.log(event);
+
+    prepNewList();
+
+    const user = `https://api.github.com/users/${inputElement.value}/repos`;
+
+    axios.get(user)
+        .then(loading())
+        .then((response) => renderItems(response))
+        .catch((error) => console.log(error));
 }
 
 function loading() {
-    let listItem = document.createElement('li');
-    let textList = document.createTextNode('Carregando...');
-    listItem.appendChild(textList);
-    listElement.appendChild(listItem);
+    generateElement('li', 'Carregando...');
+}
+
+function prepNewList() {
+    listElement.innerHTML = "";
 }
 
 function renderItems(response) {
-    listElement.innerHTML = "";
-    for (let i=0; i<response.data.length; i++) {
+    prepNewList();
 
-        let repoName = response.data[i].name;
-        let htmlUrl = response.data[i].html_url;
+    for (const {name, html_url} of response.data) {
+        generateElement('a', name, html_url);
+    }
+}
 
-        let linkElement = document.createElement('a');
-        let textElement = document.createTextNode(repoName);
-        linkElement.appendChild(textElement);
-        linkElement.setAttribute('href', `${htmlUrl}`);
+function generateElement(elementType, appendedText, setLink) {
+    const listItem = document.createElement(elementType);
+    const textList = document.createTextNode(appendedText)
 
-        let listItem = document.createElement('li');
+    listItem.appendChild(textList);
+    listElement.appendChild(listItem);
 
-        listItem.appendChild(linkElement);
-        listElement.appendChild(listItem);                
+    if (!!setLink) {
+        listItem.setAttribute('href', setLink);
+
+        const listItemLinked = document.createElement('li');
+
+        listItemLinked.appendChild(listItem);
+        listElement.appendChild(listItemLinked);
     }
 }

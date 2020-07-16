@@ -16,28 +16,44 @@
                 Github Search Repo
             </header>
         </div>
+
         <div class="row box z-depth-5">
             <div class="col s12">
-                <input type="text" name="nome" placeholder="Informe o nome do usuário"><br>
-                <a class="waves-effect waves-light btn" onclick="getRepo()">Buscar</a>
+                <input
+                    type="text"
+                    name="nome"
+                    placeholder="Informe o nome do usuário"
+                    onkeypress="searchRepos(event)"/>
+
+                <br>
+
+                <a class="waves-effect waves-light btn" onclick="getRepo()">
+                    Buscar
+                </a>
             </div>
         </div>
+
         <div class="row lista">
             <div class="col s12">
                 <ul></ul>
             </div>
         </div>
+
         <div class="row">
             <footer>
                 <div class="footer-top">
                     Designed by Isaías Lucena
                 </div>
+
                 <div class="icons">
-                    <a href="https://github.com/isaiasluc"><i class="fab fa-github-square"></a></i>
+                    <a href="https://github.com/isaiasluc">
+                        <i class="fab fa-github-square"></i>
+                    </a>
                 </div>
             </footer>
         </div>
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="main.js"></script>
 </body>
